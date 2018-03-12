@@ -5,6 +5,7 @@
 ```
     * Set GOPATH = (Where you downloaded this project)\CacheServerInGo\app
     * Install Docker
+    * Install Redis(If you want to run this program without Docker, version used for this program: 4.0.8)
 ```
 
 ## Deployment
