@@ -1,0 +1,7 @@
+version: '3.4'
+
+services:
+  cache-server:
+    build: .
+    ports:
+      - "8080:8080"
