@@ -4,6 +4,8 @@ import (
 	"io"
 	"log"
 	"os"
+
+	"github.com/garyburd/redigo/redis"
 )
 
 const (
@@ -57,6 +59,8 @@ func InitLoggers() {
 	INFO.Println("Loggers have been set up successfully.")
 }
 
-// func RedisConnect() redis.Conn {
-
-// }
+func RedisConnect() redis.Conn {
+	c, err:= redis.Dial("tcp", ":6379")
+	log.Fatalln(err)
+	return c
+}

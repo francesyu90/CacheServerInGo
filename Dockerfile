@@ -9,13 +9,11 @@ RUN go get -v "github.com/spf13/viper"
 
 RUN go get "github.com/garyburd/redigo/redis"
 
-RUN mkdir -p /src/projects/cache-server-in-go/app
+RUN mkdir -p /app
 
-ENV GOPATH /src/projects/cache-server-in-go/app
+ADD . /app 
 
-WORKDIR $GOPATH
-
-ADD ./app $GOPATH
+WORKDIR /app
 
 RUN go build ./server.go
 

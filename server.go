@@ -3,11 +3,12 @@ package main
 import (
 	"log"
 
-	"utils"
+	"./app/src/utils"
 )
 
 func main() {
 
 	utils.InitLoggers()
-	log.Println("Hello World")
+	c := utils.RedisConnect()
+	log.Println(c)
 }

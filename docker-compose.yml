@@ -7,6 +7,8 @@ services:
       - "8080:8080"
     depends_on:
       - redis
+    links:
+      - redis
 
   redis:
     container_name: redis
