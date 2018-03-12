@@ -6,6 +6,8 @@ RUN go get "github.com/gin-gonic/gin"
 
 RUN go get -v "github.com/spf13/viper"
 
+RUN go get "github.com/garyburd/redigo/redis"
+
 WORKDIR /app
 
 ADD . /app
