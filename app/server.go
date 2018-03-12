@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"./app/src/utils"
+	"utils"
 )
 
 func main() {
