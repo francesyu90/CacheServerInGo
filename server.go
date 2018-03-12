@@ -2,9 +2,12 @@ package main
 
 import (
 	"log"
+
+	"./app/src/utils"
 )
 
 func main() {
 
-	log.Fatal("Hello World")
+	utils.InitLoggers()
+	log.Println("Hello World")
 }
