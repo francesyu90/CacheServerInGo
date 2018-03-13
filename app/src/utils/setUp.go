@@ -60,7 +60,9 @@ func InitLoggers() {
 }
 
 func RedisConnect() redis.Conn {
-	c, err:= redis.Dial("tcp", ":6379")
-	log.Fatalln(err)
+	c, err:= redis.Dial("tcp", "redis:6379")
+	if err != nil {
+		log.Fatalln(err)
+	}
 	return c
 }
