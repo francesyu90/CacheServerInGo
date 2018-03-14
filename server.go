@@ -3,8 +3,9 @@ package main
 import (
 	"log"
 	"github.com/gin-gonic/gin"
+	"github.com/spf13/viper"
 
-	"./app/src/utils"
+	// "./app/src/utils"
 )
 
 func testing(c *gin.Context) {
@@ -25,13 +26,28 @@ func getMainEngine() *gin.Engine {
 
 
 func main() {
+	
 
-	utils.InitLoggers()
+	viper.SetConfigName("app")
+	viper.SetConfigType("toml")
+	viper.AddConfigPath("./app/config")
 
-	utils.RedisConnect()
+	err := viper.ReadInConfig()
+	if err != nil {
+		// log.Println("Config file not found...")
+		log.Fatalln(err)
+	}
 
-	router := getMainEngine()
+	log.Println(viper.GetInt("general.active"))
 
-	router.Run(":8080")
+	// utils.InitLoggers()
+
+	// utils.RedisConnect()
+
+	// router := getMainEngine()
+
+	// router.Run(":8080")
+
+	
 
 }
