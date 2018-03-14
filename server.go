@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"fmt"
 	"github.com/gin-gonic/gin"
 
 	"./app/src/utils"
@@ -29,13 +30,13 @@ func main() {
 
 	u := utils.GetUtilities(v)
 
-	// utils.InitLoggers()
+	utils.InitLoggers(u)
 
 	utils.RedisConnect(u)
 
 	router := getMainEngine(u)
-	router.Run(":8080")
 
-	
+	portStr := fmt.Sprintf(":%d", u.GetIntConfigValue("general.port"))
+	router.Run(portStr)
 
 }

@@ -45,6 +45,16 @@ func (u Utilities) GetRedisHost() string {
 	return  u.GetStringConfigValue(hostKey)
 } 
 
+func (u Utilities) GetMessage(key string) string {
+	msgKey := fmt.Sprintf("messages.%s", key)
+	return u.GetStringConfigValue(msgKey)
+}
+
+func (u Utilities) GetErrorMessage(key string) string {
+	msgKey := fmt.Sprintf("messages.error.%s", key)
+	return u.GetStringConfigValue(msgKey)
+}
+
 /*
 	Private methods
 */

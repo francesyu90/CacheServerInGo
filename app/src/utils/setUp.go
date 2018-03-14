@@ -49,16 +49,16 @@ func initLog(
 }
 
 // InitLoggers To initialize loggers
-func InitLoggers() {
+func InitLoggers(u *Utilities) {
 	traceLogFile, err1 := os.Create(TRACE_FILE_PATH)
 	infoLogFile, err2 := os.Create(INFO_FILE_PATH)
 	warningLogFile, err3 := os.Create(WARNING_FILE_PATH)
 	errorLogFile, err4 := os.Create(ERROR_FILE_PATH)
 	if err1 != nil || err2 != nil || err3 != nil || err4 != nil {
-		log.Fatalln("Fail to open log file")
+		log.Fatalln(u.GetErrorMessage("fail-open-file"))
 	}
 	initLog(traceLogFile, infoLogFile, warningLogFile, errorLogFile)
-	INFO.Println("Loggers have been set up successfully.")
+	INFO.Println(u.GetMessage("set-up-logger-successfully"))
 }
 
 func RedisConnect(u *Utilities) redis.Conn {
@@ -72,7 +72,7 @@ func RedisConnect(u *Utilities) redis.Conn {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	
+
 	return c
 }
 

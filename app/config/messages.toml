@@ -1,0 +1,6 @@
+[messages]
+set-up-logger-successfully = "Loggers have been set up successfully."
+
+
+[messages.error]
+fail-open-file = "Fail to open log file"
