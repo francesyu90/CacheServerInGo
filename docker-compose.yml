@@ -5,14 +5,14 @@ services:
     build: .
     ports:
       - "8080:8080"
-  #   depends_on:
-  #     - redis
-  #   links:
-  #     - redis
+    depends_on:
+      - redis
+    links:
+      - redis
 
-  # redis:
-  #   container_name: redis
-  #   image: redis:4.0.5-alpine
-  #   ports:
-  #     - "6379:6379"
-  #   restart: always
+  redis:
+    container_name: redis
+    image: redis:4.0.5-alpine
+    ports:
+      - "6379:6379"
+    restart: always

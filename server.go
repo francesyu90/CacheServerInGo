@@ -30,7 +30,6 @@ func main() {
 	v := utils.ReadInConfig()
 
 	u := utils.GetUtilities(v)
-	log.Println(u)
 
 	// utils.InitLoggers()
 

@@ -64,18 +64,16 @@ func InitLoggers() {
 func RedisConnect(u *Utilities) redis.Conn {
 
 	port := u.GetIntConfigValue("general.redis.port")
+	host:= u.GetRedisHost()
 
-	str := fmt.Sprintf(":%d", port)
+	uri := fmt.Sprintf("%s:%d", host, port)
 
-	log.Println(str)
-
-	return nil
-
-	// c, err:= redis.Dial("tcp", "redis:6379")
-	// if err != nil {
-	// 	log.Fatalln(err)
-	// }
-	// return c
+	c, err:= redis.Dial("tcp", uri)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	
+	return c
 }
 
 func ReadInConfig() *viper.Viper {

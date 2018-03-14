@@ -1,5 +1,5 @@
 [general]
-active = 0
+active = 1
 #   0: development
 #   1: docker
 #   2: production

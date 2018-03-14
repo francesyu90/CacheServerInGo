@@ -2,4 +2,4 @@
 host = "8080"
 
     [docker.redis]
-    host = "6379"
+    host = "redis"
