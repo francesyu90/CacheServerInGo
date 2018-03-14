@@ -19,3 +19,16 @@ src/github.com/ugorji/go/
 src/github.com/spf13/viper/
 src/github.com/spf13/pflag/
 src/github.com/garyburd/redigo/
+src/github.com/acroca/go-symbols/
+src/github.com/davidrjenni/reftools/
+src/github.com/fatih/gomodifytags/
+src/github.com/haya14busa/goplay/
+src/github.com/josharian/impl/
+src/github.com/MichaelTJones/walk/
+src/github.com/nsf/gocode/
+src/github.com/ramya-rao-a/go-outline/
+src/github.com/rogpeppe/godef/
+src/github.com/skratchdot/open-golang/
+src/github.com/uudashr/gopkgs/
+src/golang.org/x/tools/
+src/sourcegraph.com/sqs/goreturns/
