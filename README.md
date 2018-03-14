@@ -19,5 +19,5 @@
 2. In non-Docker environment
 
     ```
-        go run app/server.go
+        go run server.go
     ```
