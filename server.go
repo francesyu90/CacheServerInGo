@@ -2,16 +2,37 @@ package main
 
 import (
 	"log"
-	// "time"
+	"github.com/gin-gonic/gin"
 
 	"./app/src/utils"
 )
 
+func testing(c *gin.Context) {
+	log.Println("Hello World")
+}
+
+func getMainEngine() *gin.Engine {
+
+	router := gin.Default()
+	api := router.Group("/api") 
+	{
+		api.GET("/test", testing)
+	}
+
+	return router
+}
+
+
+
 func main() {
 
 	utils.InitLoggers()
+
+	router := getMainEngine()
+
+	router.Run(":8080")
+
 	
-	// time.Sleep(5000 * time.Millisecond)
-	c := utils.RedisConnect()
-	log.Println(c)
+	// c := utils.RedisConnect()
+	// log.Println(c)
 }
