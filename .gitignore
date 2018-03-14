@@ -18,3 +18,4 @@ src/golang.org/x/text/
 src/github.com/ugorji/go/
 src/github.com/spf13/viper/
 src/github.com/spf13/pflag/
+src/github.com/garyburd/redigo/
