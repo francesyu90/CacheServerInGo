@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"github.com/gin-gonic/gin"
+	"github.com/spf13/viper"
 
 	"./app/src/utils"
 )
@@ -11,12 +12,12 @@ func testing(c *gin.Context) {
 	log.Println("Hello World")
 }
 
-func getMainEngine() *gin.Engine {
+func getMainEngine(v *viper.Viper) *gin.Engine {
 
 	router := gin.Default()
-	api := router.Group("/api") 
+	api := router.Group(v.GetString("api.api")) 
 	{
-		api.GET("/test", testing)
+		api.GET(v.GetString("qa.api.test"), testing)
 	}
 
 	return router
@@ -26,17 +27,16 @@ func getMainEngine() *gin.Engine {
 
 func main() {
 	
-
 	v := utils.ReadInConfig()
 
-	log.Println(v.GetInt("docker.host"))
+	u := utils.GetUtilities(v)
+	log.Println(u)
 
 	// utils.InitLoggers()
 
-	// utils.RedisConnect()
+	utils.RedisConnect(u)
 
-	// router := getMainEngine()
-
+	// router := getMainEngine(v)
 	// router.Run(":8080")
 
 	

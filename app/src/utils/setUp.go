@@ -4,6 +4,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"fmt"
 
 	"github.com/garyburd/redigo/redis"
 	"github.com/spf13/viper"
@@ -60,12 +61,21 @@ func InitLoggers() {
 	INFO.Println("Loggers have been set up successfully.")
 }
 
-func RedisConnect() redis.Conn {
-	c, err:= redis.Dial("tcp", "redis:6379")
-	if err != nil {
-		log.Fatalln(err)
-	}
-	return c
+func RedisConnect(u *Utilities) redis.Conn {
+
+	port := u.GetIntConfigValue("general.redis.port")
+
+	str := fmt.Sprintf(":%d", port)
+
+	log.Println(str)
+
+	return nil
+
+	// c, err:= redis.Dial("tcp", "redis:6379")
+	// if err != nil {
+	// 	log.Fatalln(err)
+	// }
+	// return c
 }
 
 func ReadInConfig() *viper.Viper {
@@ -98,4 +108,8 @@ func readInConfigHelper(v *viper.Viper, fileName string) {
 	}
 
 } 
+
+func GetUtilities(v *viper.Viper) *Utilities {
+	return NewUtilites(v)
+}
 

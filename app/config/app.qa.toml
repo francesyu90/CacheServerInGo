@@ -1,0 +1,4 @@
+[qa]
+
+    [qa.api]
+    test = "/test"
