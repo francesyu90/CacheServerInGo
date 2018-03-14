@@ -1,2 +1,20 @@
 
 *.log
+src/github.com/fsnotify/fsnotify/
+src/github.com/gin-contrib/sse/
+src/github.com/gin-gonic/gin/
+src/github.com/golang/protobuf/
+src/github.com/hashicorp/hcl/
+src/github.com/magiconair/properties/
+src/github.com/mattn/go-isatty/
+src/github.com/mitchellh/mapstructure/
+src/github.com/pelletier/go-toml/
+src/github.com/spf13/afero/
+src/github.com/spf13/cast/
+src/github.com/spf13/jwalterweatherman/
+src/gopkg.in/yaml.v2/
+*.v8
+src/golang.org/x/text/
+src/github.com/ugorji/go/
+src/github.com/spf13/viper/
+src/github.com/spf13/pflag/
