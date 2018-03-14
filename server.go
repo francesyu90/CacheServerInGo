@@ -28,11 +28,10 @@ func main() {
 
 	utils.InitLoggers()
 
+	utils.RedisConnect()
+
 	router := getMainEngine()
 
 	router.Run(":8080")
 
-	
-	// c := utils.RedisConnect()
-	// log.Println(c)
 }
