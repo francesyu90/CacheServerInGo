@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/garyburd/redigo/redis"
+	"github.com/spf13/viper"
 )
 
 const (
@@ -65,4 +66,19 @@ func RedisConnect() redis.Conn {
 		log.Fatalln(err)
 	}
 	return c
+}
+
+func ReadInConfig() *viper.Viper {
+
+	v := viper.New()
+	v.SetConfigName("app")
+	v.SetConfigType("toml")
+	v.AddConfigPath("./app/config")
+
+	err := v.ReadInConfig()
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	return v
 }

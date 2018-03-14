@@ -3,9 +3,8 @@ package main
 import (
 	"log"
 	"github.com/gin-gonic/gin"
-	"github.com/spf13/viper"
 
-	// "./app/src/utils"
+	"./app/src/utils"
 )
 
 func testing(c *gin.Context) {
@@ -28,17 +27,9 @@ func getMainEngine() *gin.Engine {
 func main() {
 	
 
-	viper.SetConfigName("app")
-	viper.SetConfigType("toml")
-	viper.AddConfigPath("./app/config")
+	v := utils.ReadInConfig()
 
-	err := viper.ReadInConfig()
-	if err != nil {
-		// log.Println("Config file not found...")
-		log.Fatalln(err)
-	}
-
-	log.Println(viper.GetInt("general.active"))
+	log.Println(v.GetInt("general.active"))
 
 	// utils.InitLoggers()
 
