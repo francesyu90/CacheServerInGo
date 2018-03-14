@@ -29,7 +29,7 @@ func main() {
 
 	v := utils.ReadInConfig()
 
-	log.Println(v.GetInt("general.active"))
+	log.Println(v.GetInt("docker.host"))
 
 	// utils.InitLoggers()
 

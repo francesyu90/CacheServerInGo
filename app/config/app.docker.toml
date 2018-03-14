@@ -1,0 +1,5 @@
+[docker]
+host = "8080"
+
+    [docker.redis]
+    host = "6379"

@@ -71,14 +71,31 @@ func RedisConnect() redis.Conn {
 func ReadInConfig() *viper.Viper {
 
 	v := viper.New()
-	v.SetConfigName("app")
-	v.SetConfigType("toml")
 	v.AddConfigPath("./app/config")
+	v.SetConfigType("toml")
 
+	v.SetConfigName("app")
 	err := v.ReadInConfig()
 	if err != nil {
 		log.Fatalln(err)
 	}
 
+	readInConfigHelper(v, "app.docker")
+	readInConfigHelper(v, "app.development")
+	readInConfigHelper(v, "app.production")
+	readInConfigHelper(v, "app.qa")
+	readInConfigHelper(v, "messages")
+
 	return v
 }
+
+func readInConfigHelper(v *viper.Viper, fileName string) {
+
+	v.SetConfigName(fileName)
+	err := v.MergeInConfig()
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+} 
+
